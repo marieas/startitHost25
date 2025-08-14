@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- Oppgave: //ctrl k + c
+"Mini adventure game"
+Inputfelt for å velge navnet til spilleren -> 
+knapp "Start" tegner opp "velkommen "navn",
+bilde av troll, og hvor mye penger man har,
+Hvor mye energi man har
+En knapp for å plukke opp "gull/penger"
+En knapp for å slå trollet -> 
+når man slår mister man energi, og trollet mister liv -->
+<div id="app">
+    <input id="inputField">
+    <button onclick="startGame()">Start</button>
+</div>
+<script>
+    let myName;
+    let money  = 0;
+    let energy = 100;
+    let trollLiv = 200;
+
+    function startGame(){
+        myName = document.getElementById('inputField').value;
+
+        document.getElementById('app').innerHTML = /*HTML*/` 
+        <div>Velkommen ${myName}</div>
+        <div id="moneyDiv">Penger ${money}</div>
+        <div id="energiDiv">Energi ${energy}</div>
+        <div id="trollLivDiv">TrollLiv ${trollLiv}</div>
+        <img height="200" src="troll.jpg"> 
+        <button onclick="pickUpMoney()">PlukkOPPPENGER</button>
+        <button onclick="slåTroll()">Slå troll</button>
+        `
+    }
+
+    function pickUpMoney(){
+      money = money + 100;
+      document.getElementById('moneyDiv').innerHTML = `Penger ${money}`
+    }
+
+    function slåTroll(){
+        trollLiv = trollLiv - 20;
+        energy = energy - 10;
+        document.getElementById('energiDiv').innerHTML = `Energi ${energy}`
+        document.getElementById('trollLivDiv').innerHTML = `TrollLiv ${trollLiv}`
+    }
+
+</script>
+</body>
+</html>
