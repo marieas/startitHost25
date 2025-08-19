@@ -1,0 +1,12 @@
+1. Introduksjon til parameter
+Eksempel; Fargevelgeren
+3 knapper velger hver sin ulike farge (tekst)
+Man ønsker også å sette ulik font-size
+
+2. Repetisjon variabler, operator og parameter
+Utvide adventurespillet
+- Man skal kunne plukke opp et våpen som øker styrke (øks, hammer, sag)
+- Man skal kunne plukke opp frukt som øker energi (eple, banan, jordbær)
+
+3. "Math.Random"
+- Penger skal øke med en vilkårlig sum

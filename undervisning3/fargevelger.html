@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">Hei</div>
+
+    <script>
+        let chosenColor = 'hotpink';
+        let fontSize = 30;
+
+        drawView()
+        function drawView(){
+            /*HTML*/ 
+            document.getElementById('app').innerHTML = `
+            <button onclick="changeColorAndFontSize('red', 100)">Valgt farge er Rød</button>
+            <button onclick="changeColorAndFontSize('blue', 500)">Valgt farge er Blå</button>
+            <button onclick="changeColorAndFontSize('green',10)">Valgt farge er Grønn</button>
+            <p style="color: ${chosenColor}; font-size:${fontSize}px " >Du har valgt farge: ${chosenColor}</p>
+            `
+        }
+
+        /*
+        function changeColorToRed(){
+            chosenColor = 'red'
+            drawView();
+        }
+
+        function changeColorToBlue(){
+            chosenColor = 'blue'
+            drawView();
+        }
+
+        function changeColorToGreen(){
+            chosenColor = 'green'
+            drawView();
+        }*/
+
+        function changeColorAndFontSize(color, font){
+            chosenColor = color
+            fontSize = font
+            drawView();
+        }
+    </script>
+</body>
+</html>
