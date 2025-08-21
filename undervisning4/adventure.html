@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+</div>
+<script>
+    let myName = 'Bjarne';
+    let money  = 0;
+    let energy = 100;
+    let trollLiv = 200;
+    let currentWeapon = 'No weapon'
+    let strength = 20;
+    let randomValue = 0;
+    let gameOver = false;
+
+    game()
+    function game(){
+        if(gameOver == true){
+            drawGameOverScreen()
+        }
+        else{
+            drawView()
+        }
+    }
+
+    function drawView(){
+        document.getElementById('app').innerHTML = /*HTML*/` 
+        <div>Velkommen ${myName}</div>
+        <div id="moneyDiv">Penger ${money}</div>
+        <div id="energiDiv">Energi ${energy}</div>
+        <div id="trollLivDiv">TrollLiv ${trollLiv}</div>
+        <img height="200" src="troll.jpg"> 
+        <button onclick="pickUpMoney()">PlukkOPPPENGER</button>
+        <button onclick="slåTroll()">Slå troll</button>
+        <button onclick="pickUpWeapon('axe', 50)">Øks</button>
+        <button onclick="pickUpWeapon('hammer', 5)">Hammer</button>
+        <button onclick="pickUpWeapon('saw', 200)">Sag</button>
+        <button onclick="eatFruit(1000)">Apple</button>
+        <button onclick="eatFruit(20)">Banana</button>
+        <button onclick="eatFruit(60)">Pølse</button>
+        <div>${currentWeapon}</div>
+        <div>${randomValue}</div>
+        `
+    }
+
+    function drawGameOverScreen(){
+         document.getElementById('app').innerHTML = /*HTML*/` 
+         <h1>Game over</h1>
+         `
+    }
+
+    function pickUpMoney(){
+      randomValue = Math.floor(Math.random() * 1000) + 100;
+      money = money + randomValue;
+      game()
+    }
+
+    function slåTroll(){
+        trollLiv = trollLiv - strength;
+        if(trollLiv <= 0 ){
+            gameOver = true;
+        }
+        energy = energy - 10;
+        game()
+    }
+
+    function pickUpWeapon(weapon, damage){
+        currentWeapon = weapon;
+        strength = damage;
+        game();
+    }
+
+    function eatFruit(calories){
+        energy += calories;
+        game();
+    }
+
+</script>
+</body>
+</html>

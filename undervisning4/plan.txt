@@ -1,0 +1,11 @@
+1. introduksjon til if/else - betingelser
+- true, false,==,!=, // ! = ikke
+- conditional rendering (login)
+
+2. Eksempel; Ølsalg
+- <,>,&&,||
+
+3. Adventuregame;
+* Unngå å få minusliv -> heller vise "game over screen"
+
+

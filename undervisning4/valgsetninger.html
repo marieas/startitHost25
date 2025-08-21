@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        let loggedIn = false;
+        let errormsg = '';
+        //database liksom
+        let correctUserName = 'Bjarne007'
+        let correctPsw = 'pølsemann20'
+        //
+        let saldo = 150230592;
+        let userName = '';
+        let password = '';
+        /*Pause til 13.00*/
+
+        drawView()
+        function drawView(){
+             if(loggedIn == true){ //sammenligner "har logged in verdi true?/ er disse verdiene like"
+             document.getElementById('app').innerHTML = /*HTML*/`
+              <div>Velkommen ${userName}</div>
+              <div>Saldo på konto: ${saldo}</div>
+             `
+            }else{
+                document.getElementById('app').innerHTML = /*HTML*/`
+                Username: <input onchange="setUsername(this.value)">
+                Password: <input onchange="setPassword(this.value)">
+                <button onclick="logIn()">Log in</button>
+                <div>${errormsg}</div>`
+            }
+        }
+
+        function logIn(){
+            //&& = og || = eller
+            if(userName == 'Bjarne007' && password == 'pølsemann20'){
+                loggedIn = true; //setter ny verdi på loggedin til true
+                drawView()
+            }
+            else{
+                errormsg = "wrong username or password!"
+                drawView()
+            }
+
+        }
+
+        function setUsername(userinput){
+            userName = userinput;
+        }
+
+        function setPassword(pswInput){
+            password = pswInput
+        }
+    </script>
+</body>
+</html>

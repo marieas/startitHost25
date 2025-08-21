@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script>
+        let app = document.getElementById('app');
+        let age;
+        let message = '';
+        let klokka = 8.10
+
+        drawView()
+
+        function drawView() {            
+            app.innerHTML = /*HTML*/`
+            age: <input onchange="setAge(this.value)">
+            <div>${message}</div>
+            ` 
+        }
+
+        function setAge(value){
+            age = value;  
+            checkAgeAndTime()            
+            drawView()
+        }
+
+        function checkAgeAndTime(){
+                if(age >= 18 && (klokka >= 8.15 && klokka < 20.00) ){
+                    message = "You can buy beer"
+                }else{
+                   message = "You cant buy beer"
+                }
+        }
+    </script>
+</body>
+</html>
