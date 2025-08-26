@@ -1,0 +1,12 @@
+1. Introduksjon til returverdi
+- pizzabakeren
+
+2. "If else sjekker" som funksjon
+- lesbarhet
+
+3. Del opp HTML i mindre metoder som returnerer
+- rydde adventuregame sin drawView funksjon
+
+4. Ekstra funksjonalitet i adventuregame;
+Get random weapon(),
+Troll slår tilbake om vi slår han først - random strength()

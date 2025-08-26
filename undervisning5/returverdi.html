@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        let kunde = 'Bjarne'
+        let hasOrderedPizza = false;
+        /* 10.35*/ 
+
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>${kunde} kommer inn i pizzasjappe</div>
+            <button onclick="orderPizza()">Legg inn Pizza bestilling</button>  
+            ${LagPizza()}                      
+            `
+        }
+
+        function orderPizza(){
+            hasOrderedPizza = true;
+            updateView();
+        }
+        function LagPizza(){
+         
+            if(!hasOrderedPizza){ // hvis man ikke har bestilt skal man returnere '';
+                return '<div>Har ikke bestilt</div>';
+            }
+            // Hvis man har bestilt pizza lager kokken mat,
+            // Han som tar i mot bestilling har ansvar for deig, han roper opp pizzatype
+            let deig = 'The pizza has an american dough'
+            // En annen kollega har ansvar for at grønnsaker er hakket opp
+           deig += 'and' + chopVegetables();
+            // Når pizzan er ferdig skal man returnere et bilde av en pizza,
+            // Og tekst om hva som er toppings
+            let html = `
+            <img src='pizza.jpg'/>
+            <div>${deig}</div>
+            ` 
+            return html;
+        }
+
+        function chopVegetables(){
+            let vegetables = 'Chopped paprika and onions';
+            return vegetables;
+        }
+    </script>
+</body>
+</html>

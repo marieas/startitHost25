@@ -30,12 +30,31 @@
         }
 
         function checkAgeAndTime(){
-                if(age >= 18 && (klokka >= 8.15 && klokka < 20.00) ){
+                if(IsOlderThan18() && IsOpeningHours()){
                     message = "You can buy beer"
                 }else{
                    message = "You cant buy beer"
                 }
         }
+
+        function IsOpeningHours(){
+            if(klokka >= 8.15 && klokka < 20.00){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        function IsOlderThan18(){
+            if(age >= 18){
+                return true;
+            }
+            
+        else {
+            return false;
+        }
+    }
     </script>
 </body>
 </html>

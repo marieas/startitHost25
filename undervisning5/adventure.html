@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+</div>
+<script>
+    let myName = 'Bjarne';
+    let money  = 0;
+    let energy = 100;
+    let trollLiv = 200;
+    let trollStrength;
+    let currentWeapon = 'No weapon'
+    let strength = 20;
+    let randomValue = 0;
+    let gameOver = false;
+    let health = 20000;
+    
+
+    game()
+    function game(){
+        if(gameOver == true){
+            drawGameOverScreen()
+        }
+        else{
+            drawView()
+        }
+    }
+
+    function drawView(){
+        document.getElementById('app').innerHTML = /*HTML*/` 
+        ${drawStats()}
+        ${drawActionButtons()}      
+        `
+    }
+
+    function drawStats(){
+        return `
+        <div>Velkommen ${myName}</div>
+        <div id="moneyDiv">Penger ${money}</div>
+        <div id="energiDiv">Energi ${energy}</div>
+        <div id="trollLivDiv">TrollLiv ${trollLiv}</div>
+        <div>${currentWeapon}</div>
+        <div>${randomValue}</div>
+        <div>${strength}</div>
+        <img height="200" src="troll.jpg"> 
+        `
+    }
+
+    function drawActionButtons(){
+        return `
+        <button onclick="pickUpMoney()">PlukkOPPPENGER</button>
+        <button onclick="slåTroll()">Slå troll</button>
+        <button onclick="getRandomWeapon()">Get Random Weapon</button>       
+        <button onclick="eatFruit(1000)">Apple</button>
+        <button onclick="eatFruit(20)">Banana</button>
+        <button onclick="eatFruit(60)">Pølse</button>
+        `
+    }
+
+    function drawGameOverScreen(){
+         document.getElementById('app').innerHTML = /*HTML*/` 
+         <h1>Game over</h1>
+         `
+    }
+
+    function pickUpMoney(){
+      randomValue = Math.floor(Math.random() * 1000) + 100;
+      money = money + randomValue;
+      game()
+    }
+
+    function slåTroll(){
+        trollLiv = trollLiv - strength;
+        if(trollLiv <= 0 ){
+            gameOver = true;
+        }
+        energy = energy - 10;
+        trollStrength = getRandomTrollStrength();
+        //health mister like mye liv som troll har i styrke
+        // hvis vi er døde - game over;
+        game()
+    }
+
+    function getRandomTrollStrength(){
+       // 500-2000
+       let number = Math.floor(Math.random() * 1500) + 500;
+       return number;
+    }
+
+    function pickUpWeapon(weapon, damage){
+        currentWeapon = weapon;
+        strength = damage;
+        game();
+    }
+
+    function eatFruit(calories){
+        energy += calories;
+        game();
+    }
+
+    function getRandomWeapon(){
+     /*"pickUpWeapon('axe', 50)">
+       "pickUpWeapon('hammer', 5)">
+       "pickUpWeapon('saw', 200)"*/
+
+     let randomNumber =  Math.floor(Math.random()* 3) //return 
+     if(randomNumber == 0){
+        pickUpWeapon('axe', 50)
+     }
+     else if(randomNumber == 1){
+        pickUpWeapon('hammer', 5)
+     }
+     else{
+        pickUpWeapon('saw', 200)
+     }
+
+    }
+
+</script>
+</body>
+</html>
