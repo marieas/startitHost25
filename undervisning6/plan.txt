@@ -1,0 +1,46 @@
+1. Konsept problemløsning (Intro til MVC)
+
+// skritt 1, studer oppgave tekst, skriv opp med egne ord hva du ønsker å få til,
+// hva du trenger
+// skritt 2, hva slags data trenger jeg å lagre? (M)
+// skritt 3, hva ønsker jeg å vise frem? (V) 
+// - Lag div(app) og updateView funksjon, husk å kjøre updateview ;)
+// legg inn relevante variabler 
+// skritt 4, hvilke funksjoner trenger jeg? - lag funksjonsnavn
+// og tomme funksjoner
+// skritt 5 - implementer funksjonalitet et steg om gangen
+
+age
+ticketType
+hasTicket (true/false)
+wallet
+vip (true/false)
+userMessage
+
+checkAge()
+calculatePrice()
+checkTicketStatus()
+
+Kino Appen
+
+Spørre brukeren om alder (onchange - ) 
+Sjekke hvilken billettype de kan kjøpe (barn/voksen)
+//hvis under 18 tickettype = barnebillett
+Returnere en passende melding om hvilke billettype de har
+
+Sjekke om de har billett eller ikke
+
+Beregn totalpris 
+Barnebillett = 80 kr
+Voksenbillett = 120 kr
+Lommebok
+
+Billettkontroll;
+Hvis vip → alltid slipp inn.
+Hvis under 18 → "Du får barnebillett". (sjekk)
+Hvis over 18 og har billett → "Velkommen inn". (sjekk)
+Hvis over 18 og ikke har billett → "Du må kjøpe billett først". (sjekk)
+
+2. Feilsøking med console.log()
+3. Debugging
+

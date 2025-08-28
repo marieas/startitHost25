@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div> 
+    <script>
+        //MVC - Model, View, Controller
+
+        //Model - dataene våre 
+        let age;
+        let ticketType;
+        let hasTicket = false;
+        let wallet = 500;
+        let vip = false;
+        let userMessage = 'Write age to find ticket type';
+        let totalPrice = 0;
+        let adultTicketPrice = 180;
+        let childTicketPrice = 80;
+
+        //View - bruker modellen til å vise frem informasjon
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            Age: <input onchange="checkAge(this.value)">
+            <div>Customer age: ${age}</div>
+            <div>${ticketType}</div>
+            <div>${userMessage}</div>
+            <button onclick="buyTicket()">Buy Ticket</button>
+            <div>Wallet: ${wallet}</div>
+            <div>Does user have ticket? ${hasTicket}</div>
+            <div>Is user VIP? ${vip}</div>
+            <div>Total price: ${totalPrice}</div>
+            `
+        }
+
+        //Controller - endrer verdiene til modell
+        function checkAge(inputAge) {
+            age = inputAge;        
+            if(age <18){
+                ticketType = 'Barnebillett'
+            }
+            else{
+                ticketType = 'Voksenbillett'
+            }
+            updateView()
+        }
+        function calculatePrice(){
+            if(ticketType == 'Barnebillett'){
+                return childTicketPrice;
+            }
+            else if(ticketType == 'Voksenbillett'){
+                return adultTicketPrice;
+            }else{
+                userMessage = 'No customer'
+                return 0;
+            }
+        }
+        function buyTicket(){     
+            if(age == undefined){
+                userMessage = 'No age input'
+                updateView()
+                return;
+            }     
+           totalPrice += calculatePrice()
+           wallet -= totalPrice;
+           hasTicket = true;
+           checkTicketStatus()
+           updateView()
+
+        }
+        function checkTicketStatus(){
+            if(hasTicket){
+                userMessage = 'velkommen inn'
+            }
+            else{
+                userMessage = 'du må kjøpe billett'
+            }
+        }
+
+       
+
+    </script>
+</body>
+</html>
