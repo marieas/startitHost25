@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+    let userInput = '';
+    let howManyLetterA = 0;
+    let builtCharacterHTML = ``;
+    let numberOfCharacters = 0;
+
+    //Pause til 11.15!
+
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`            
+            <input onchange="setInput(this.value)">
+            <button onclick="DoCharacterStuff()">Magic</button>
+            ${builtCharacterHTML}
+            number of letter a: ${howManyLetterA}
+            number of characters: ${numberOfCharacters}
+            `
+        }
+        function setInput(input){
+            userInput = input;
+        }
+
+        function DoCharacterStuff(){
+            //Telle antall karakterer/tegn
+            //Printe ut/lage en div per bokstav/karakter/tegn
+
+           /* let text = "Bjarne" // 0 = B
+                                // 1 = j
+                                // 2 = a
+            console.log(text[1])*/
+
+            for(let i = 0; i < userInput.length; i++){
+                let character = userInput[i]
+                if(character == 'a'){
+                    howManyLetterA++;
+                }
+             
+                numberOfCharacters++;
+                builtCharacterHTML += `<div>HEI: ${character}</div>`
+            }
+            updateView()
+        }
+
+    </script>
+</body>
+</html>

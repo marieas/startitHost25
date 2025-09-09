@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app"></div>
+<script>
+    let number;
+    let number2;
+    let operator;
+    let sum = 0;
+
+    //Pause til 10.30
+
+    updateView()
+    function updateView(){
+        document.getElementById('app').innerHTML = /*HTML*/`
+        ${drawButtons()}
+        <button onclick="setOperator('+')">+</button>
+        <button onclick="setOperator('-')">-</button>
+        <div>Du har valgt ${number} og ${number2}</div>
+        <div>Operator: ${operator}</div>
+        <div>Sum: ${sum}</div>
+        <button onclick="calculate()">Utfør handling</button>
+        `
+    }
+
+    function drawButtons(){
+        //for-løkke
+        // defininere en telle-variabel og set start verdi
+        // definere en betingelse for hvor lenge løkken skal telle
+        // definere hvordan telleren skal oppføre seg
+        let html = `` 
+
+        for(let teller = 1; teller<=9; teller++){
+          html += /*HTML*/`<button onclick="setNumber(${teller})">${teller}</button>` 
+        }
+        return html;
+    }
+
+    function setNumber(value){
+        if(number == undefined){
+             number = value;
+        }
+        else{
+            number2 = value;
+        }
+       updateView()
+    }
+
+    function setOperator(value){
+        operator = value;
+        updateView()
+    }
+
+    function calculate(){
+        if(operator == '+'){
+            sum = number + number2;
+        }
+        else if(operator == '-'){
+            sum = number - number2;
+        }
+        reset()
+    }
+
+    function reset(){
+        number = undefined;
+        number2 = undefined;
+        operator = undefined;
+        updateView();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--3. Få en robot til å "gå" 🤖
+    - input felt med hvor mange "skritt" roboten skal ta
+    - printe ut for hvert skritt han tar-->
+    <div id="app"></div>
+    <script>
+        //M
+        let numberOfSteps = 0;
+        let message = 'The robot is standing still <br>'
+
+        //V
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            How many steps should 🤖 take?
+            <input type="number" onchange="setNumberOfSteps(this.value)">
+            <button onclick="moveRobot()">Move robot</button>
+            ${message}
+            `
+        }
+        //C
+        function setNumberOfSteps(stepCount){
+            numberOfSteps = stepCount;
+        }
+
+        function moveRobot(){
+        // for-løkke
+        // defininere en telle-variabel og set start verdi
+        // definere en betingelse for hvor lenge løkken skal telle
+        // definere hvordan telleren skal oppføre seg
+            for(let count = 1; count<= numberOfSteps; count++){
+                message += `🤖 tar skritt nummer ${count} <br>` 
+            }
+            updateView();
+        }
+
+    </script>
+</body>
+</html>
