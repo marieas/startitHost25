@@ -1,0 +1,26 @@
+Introduksjon til arrays 
+
+- lage array,
+- lese ut enkeltverdier,
+- endre enkeltverdier,
+
+Eksempel collection of Food
+        <button>Taco x</button>
+        <button>Pølse x</button>
+        <button>Pizza x</button>
+        <button>Kebab x</button>
+        <button>Gyros x</button>
+        <button>Cesar Salat x</button>
+        <div>Add Food dish: 
+            <input>
+            <button>Submit</button>
+        </div>
+
+- Vi ønsker å tegne opp alle matrettene med en knapp med navn og et kryss etter
+- Når man trykker på krysset skal matretten fjernes fra viewet
+- Vi kan bruke et inputfelt til å legge til en ny matrett i samlingen
+- En tilfeldig middag fra samlingen kan trekkes og vises som dagens måltid!
+
+Eksempel: Ekstra challenge Secret message (heavy index trening)
+
+Banan Jalapenos Ananas Reddik Nepe Eple

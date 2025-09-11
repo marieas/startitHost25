@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">       
+        <div>Add Food dish: 
+            <input>
+            <button>Submit</button>
+        </div>
+    </div>
+    <script>
+        //Pause til 13.30
+        let matretter = ['Taco','Pølse','Pizza','Kebab','Gyros', 'Cesar Salat']
+        let newFoodDish = '' 
+        let selectedDinner = '';
+
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            ${drawFoodButtons()}
+            <div>Add Food dish: 
+            <input onchange="setNewFoodDish(this.value)">
+            <button onclick="updateCollection()">Submit</button>
+            <button onclick="getDinner()">Gi meg dagens middag</button>
+            <br>
+            Dagens middag:${selectedDinner}
+            </div>
+            `
+        }
+
+        function drawFoodButtons(){
+            let html = ``                     
+            for(let counter = 0; counter < matretter.length; counter++){
+                html += `<button onclick="removeFood(${counter})">${matretter[counter]} x</button>` 
+            }
+            return html;
+        }
+
+        function setNewFoodDish(foodDish){
+            newFoodDish = foodDish;
+        }
+
+        function updateCollection(){
+            matretter.push(newFoodDish)
+            updateView()
+        }
+
+        function removeFood(index){
+            matretter.splice(index,1)
+            updateView()
+        }
+
+        function getDinner(){
+            let randomNumber = Math.floor(Math.random() * matretter.length)
+            selectedDinner = matretter[randomNumber]
+            updateView()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+       
+    <script>
+    let starwarsCharacters = ['Princess Leia', 'Anakin Skywalker', 'Obi Wan Kenobi', 'C3P0', 'R2D2'];
+    // index til å hente ut data 0, 1, 2
+    let selectedCharacter = ``;
+
+    setSelectedCharacter()
+    function updateView(){
+        document.getElementById('app').innerHTML = `
+        ${selectedCharacter}
+        <button onclick="updateCharacter()">Imperial march</button>
+        `
+    }
+
+    function setSelectedCharacter(){
+        selectedCharacter = starwarsCharacters[1];
+        updateView()
+    }
+
+    function updateCharacter(){
+        starwarsCharacters[1] = 'Darth Vader'
+        setSelectedCharacter();
+        
+    }
+
+    </script>
+</body>
+</html>
