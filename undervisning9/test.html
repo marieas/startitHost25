@@ -92,7 +92,7 @@
            totalPrice = 50;
            wallet = 100;
            checkOutMsg = ''
-           cart = ['bread']
+           cart = ['bread']           
            //lage forventede verdier (endring i modell etter funksjon)
            let expectedCheckOutMsg = 'Du har kjøpt alt i vogna di ;D'
            let expectedWallet = 50
@@ -101,6 +101,8 @@
            //asserte de verdiene som endrer seg     
            assert.equal(wallet, expectedWallet)    
            assert.equal(checkOutMsg, expectedCheckOutMsg) 
+
+           //tester resetStore som ligger i buy items (burde vært egen test)
            assert.equal(totalPrice, 0)
            assert.deepEqual(cart, []) 
         })
