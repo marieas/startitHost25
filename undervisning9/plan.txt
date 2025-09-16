@@ -1,0 +1,44 @@
+Hovedtema: Unittesting
+
+1. Se på shopping cart eksempel 
+- Hvordan er koden bygd opp? Forstå og forklare :)
+
+2. Dele opp i MVC filer
+
+3. Introduksjon til Unittesting
+
+- Vi skriver tester for å sjekke handlevogn funksjonaliteten!
+
+🔍 Tidlig feilfangst
+Når man skriver tester parallelt med koden,
+oppdages feil og logiske misforståelser raskt. 
+Dette gjør at man slipper å bruke tid på å lete
+etter årsaken til feil i et stort system senere. 
+Feil som oppdages tidlig, er også billigere å rette.
+
+🔄 Trygg endring
+Når man videreutvikler eller refaktorerer kode,
+kan man kjøre alle eksisterende tester på nytt. 
+Dersom testene fortsatt passerer, 
+vet man at man ikke har brutt gammel funksjonalitet.
+Dette gir større trygghet til å forbedre kodekvaliteten og legge til nye funksjoner.
+
+🧩 Dokumentasjon
+Tester viser hvordan en funksjon eller klasse er ment å brukes.
+De fungerer dermed som levende dokumentasjon som ikke blir utdatert
+på samme måte som statisk dokumentasjon, 
+fordi testene kjøres jevnlig og må holde seg oppdaterte for å fungere.
+
+⚡ Automatisering
+Med et godt testsystem kan man kjøre hundrevis av tester automatisk
+på sekunder. Dette gjør at man raskt får tilbakemelding på om koden fungerer
+som den skal etter hver endring. Det sparer mye manuelt testarbeid 
+og reduserer risikoen for menneskelige feil.
+
+🛡️ Kvalitetssikring
+Enhetstester bidrar til å sikre at de minste byggesteinene i systemet fungerer korrekt.
+Når alle små deler fungerer hver for seg, er det lettere å bygge stabile og
+pålitelige større systemer. Dette gir bedre kvalitet, færre feil i produksjon
+og økt tillit både hos utviklere og brukere.
+
+

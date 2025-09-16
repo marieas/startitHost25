@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.19.3.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.19.3.js"></script>
+    <script src="model.js"></script>
+    <script src="controller.js"></script>
+    
+    <script>
+        function updateView() {}
+        QUnit.test('Add-to cart test', function(assert){
+            //nullstill/forberede modelvariabler som skal testes
+           cart = []
+           totalPrice = 0;
+            //lage forventede verdier (endring i modell etter funksjon)
+            let expectedCart = ['bread']
+            let expectedTotalPrice = 36
+            //kjør funksjon man tester
+            addToCart('bread',36)
+            //asserte de verdiene som endrer seg
+            assert.equal(totalPrice, expectedTotalPrice)//reel, expected
+            assert.deepEqual(cart, expectedCart)
+        })
+
+        QUnit.test('Add-to cart test - when cart not empty', function(assert){
+            //nullstill/forberede modelvariabler som skal testes
+           cart = ['salami']
+           totalPrice = 36;
+            //lage forventede verdier (endring i modell etter funksjon)
+            let expectedCart = ['salami','milk']
+            let expectedTotalPrice = 76
+            //kjør funksjon man tester
+            addToCart('milk',40)
+            //asserte de verdiene som endrer seg   
+            assert.equal(totalPrice, expectedTotalPrice)//reel, expected
+            assert.deepEqual(cart, expectedCart)        
+        })
+
+        QUnit.test('Add-to cart test - not allowed same item', function(assert){
+            //nullstill/forberede modelvariabler som skal testes
+            cart = ['salami']
+            totalPrice = 36;
+            //lage forventede verdier (endring i modell etter funksjon)
+            let expectedTotalPrice = 36;
+            let expectedCart = ['salami']
+            //kjør funksjon man tester
+            addToCart('salami',36)
+            //asserte de verdiene som endrer seg    
+            assert.equal(totalPrice, expectedTotalPrice)//reel, expected
+            assert.deepEqual(cart, expectedCart)         
+        })
+   
+        QUnit.test('Test remove item', function(assert){
+           //nullstill/forberede model variabler som skal testes
+           cart = ['bread','milk','salami']
+           totalPrice = 250
+           //lage forventede verdier (endring i modell etter funksjon)
+           let expectedCart = ['bread','milk']
+           let expectedTotalPrice = 214
+           //kjør funksjon man tester
+           removeItem(2)
+           //asserte de verdiene som endrer seg   
+           assert.equal(totalPrice, expectedTotalPrice)//reel, expected
+           assert.deepEqual(cart, expectedCart)         
+        })
+      
+      
+        QUnit.test('Test buyItems - totalprice > wallet', function(assert){
+           //nullstill/forberede model variabler som skal testes
+           totalPrice = 775;
+           wallet = 100;
+           checkOutMsg = ''
+           //lage forventede verdier (endring i modell etter funksjon)
+           let expectedCheckOutMsg = 'Du har ikke nok penger'
+           let expectedWallet = 100
+           //kjør funksjon man tester
+           buyItems()
+           //asserte de verdiene som endrer seg     
+           assert.equal(wallet, expectedWallet)    
+           assert.equal(checkOutMsg, expectedCheckOutMsg)  
+        })
+
+         QUnit.test('Test buyItems - enough funds', function(assert){
+           //nullstill/forberede model variabler som skal testes
+           totalPrice = 50;
+           wallet = 100;
+           checkOutMsg = ''
+           cart = ['bread']
+           //lage forventede verdier (endring i modell etter funksjon)
+           let expectedCheckOutMsg = 'Du har kjøpt alt i vogna di ;D'
+           let expectedWallet = 50
+           //kjør funksjon man tester
+           buyItems()
+           //asserte de verdiene som endrer seg     
+           assert.equal(wallet, expectedWallet)    
+           assert.equal(checkOutMsg, expectedCheckOutMsg) 
+           assert.equal(totalPrice, 0)
+           assert.deepEqual(cart, []) 
+        })
+
+    </script>
+</body>
+</html>
