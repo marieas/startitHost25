@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //hjul
+        //hestekrefter
+        //motor
+        //drivstoff
+        //farge
+        //sjåfør
+        //merke
+
+        //Pause til 13.04
+
+        let bil = {
+            numberOfWheels : 4,
+            horsePower : '150hk',
+            isEUGodkjent: false,
+            color: 'black',
+            driver: 'Bjarne',
+            make: 'Subaru'
+        }
+
+        let kurt = {
+            bodyParts: ['tail','legs'],
+            color: 'white',
+            species: 'Dog'
+        }
+        let kåre = {
+            bodyParts: ['tail','legs'],
+            color: 'white',
+            species: 'Dog'
+        }
+        let myAnimals = [kurt, kåre];
+
+        let animals = [
+        {
+            bodyParts: ['tail','legs'],
+            color: 'white',
+            species: 'Dog',
+            id: 0
+        },
+        {
+            bodyParts: ['nose','eyes'],
+            color: 'red',
+            species: 'cow',
+            id: 1
+        },
+        {
+            bodyParts: ['tail','legs'],
+            color: 'white',
+            species: 'Dog',
+            id: 3
+        },
+
+        ]
+
+        updateView()
+        function updateView(){
+            document.getElementById('app').innerHTML = `
+            Car: 
+            Make: ${bil.make}
+            Color: ${bil.color}
+            <br>
+            Animals:
+            ${drawAnimals()}
+            `
+        }
+
+        function drawAnimals(){
+            let html = '';
+
+            for(let counter = 0; counter < animals.length; counter++){
+                html += `                       
+                Animal: 
+                id: ${animals[counter].id}
+                species: ${animals[counter].species}
+                color: ${animals[counter].color}
+                <br>
+                ` 
+            }
+
+            return html;
+        }
+    </script>
+</body>
+</html>

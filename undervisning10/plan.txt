@@ -1,0 +1,28 @@
+Intro til objekter
+
+Hva kan beskrive en bil?
+Hva kan beskrive et dyr?
+
+Enkeltobjekter, Uthenting av objektinfo
+Samling av objekter
+
+Starwars fight:
+
+Du skal kunne velge en hero (c3po, chewbacca, luke skywalker eller princess leia)
+
+Når du har valgt skal man se Stats om hero: 
+Bilde
+Navn, 
+Helse,
+Strength, 
+Weapon
+
+Valgt character skal sloss mot Darth Vader
+Han vises ved siden av selected hero, med sine stats (Navn og Health)
+
+Det skal være 1 knapp; Attack 
+Når en character angriper skal man vise en tekst- eksempel "Leia fights with 'hairflip' dealing 10 damage"
+Om din character har lite liv, skal du kunne bytte hvem som sloss 
+
+- Om en character "dør" skal den fjernes fra select options så den ikke kan velges
+- Om Darth dør skal man vise en winning screen
